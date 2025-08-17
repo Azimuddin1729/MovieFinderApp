@@ -4,7 +4,7 @@ export function MovieCard({movie}:any) {
      return (
        <div className="bg-dark-100/60 p-4 rounded-3xl shadow-inner shadow-light-200/20 flex flex-col items-center w-[200px]">
             <img
-                src={poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : "/no-movie.jpg"}
+                src={poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : "./no-image.png"}
                 alt={title}
                 className="w-[127px] h-[163px] object-cover rounded-lg shadow-md"
             />

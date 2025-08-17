@@ -1,4 +1,5 @@
 import { useState,useEffect } from 'react'
+import { useDebounce } from 'react-use';  
 import './App.css'
 import Search from './components/Search';
 import axios from 'axios';
@@ -14,12 +15,14 @@ const API_KEY=import.meta.env.VITE_TMDB_API_KEY;
 function App() {
    
   const [searchMovie,setSearchMovie]=useState("");
-
- 
-
   const [errorMessage,setErrorMessage]=useState("");
   const [movieList,setMovieList]=useState([]);
   const [isLoading,setIsLoading]=useState(false);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  
+  useDebounce(()=>{
+    setDebouncedSearchTerm(searchMovie);
+  }, 500 , [searchMovie]);
 
   const fetchMovies = async (query='') => {
     setIsLoading(true); 
@@ -47,15 +50,11 @@ function App() {
       const data = response.data;
       // console.log(data);
       setMovieList(data.results);
-
-    
     } 
     
     catch (error) {
-      
       console.error(`Error fetching movies: ${error}`);
       setErrorMessage("Failed to fetch movies. Please try again later.");
-      
     }
 
     finally {
@@ -63,11 +62,9 @@ function App() {
     }
   };
 
-  
-
   useEffect(()=>{
-    fetchMovies(searchMovie);
-  },[searchMovie])
+    fetchMovies(debouncedSearchTerm);
+  },[debouncedSearchTerm])
 
   return (
     <>
