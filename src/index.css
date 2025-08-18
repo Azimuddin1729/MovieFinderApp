@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+@theme {
+      --color-light-100: #cecefb;
+      --breakpoint-xss: 300px;
+      --breakpoint-xs:480px;
+      --color-light-200: #a8b5db;
+      --color-gray-100: #9ca4ab;
+      --color-dark-100: #0f0d23;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}

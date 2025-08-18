@@ -5,7 +5,7 @@ type SearchProps = {
 
 export function Search({searchTerm, setSearchTerm}: SearchProps) {
     return (
-        <div className="w-[360px] sm:w-[400px] md:w-[760px] bg-light-100/5 px-3 py-2 rounded-lg mt-10 max-w-3xl mx-auto"> 
+        <div className="w-[360px] sm:w-[400px] md:w-[760px] bg-light-100/10 px-3 py-2 rounded-lg mt-10 max-w-3xl mx-auto"> 
            <div className="relative flex items-center">
 
               <img className="absolute left-2 h-5 w-5" src="./search.svg" alt="search"/>

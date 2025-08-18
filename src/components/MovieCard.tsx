@@ -2,11 +2,12 @@
 export function MovieCard({movie}:any) {
      const { title,vote_average,poster_path,release_date, original_language } = movie;
      return (
-       <div className="bg-dark-100/60 p-4 rounded-3xl shadow-inner shadow-light-200/20 flex flex-col items-center w-[200px]">
+       <div className="bg-dark-100/60 p-4 rounded-3xl shadow-inner shadow-light-200/60 flex flex-col items-center w-[180px]">
+         {/* bg-red-950 this is also good color */}
             <img
                 src={poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : "./no-image.png"}
                 alt={title}
-                className="w-[127px] h-[163px] object-cover rounded-lg shadow-md"
+                className="w-[100px] h-[150px] object-cover rounded-lg shadow-md"
             />
 
             <h3 className="mt-4 text-center text-sm w-full truncate text-gray-50">{title}</h3>
